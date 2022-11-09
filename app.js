@@ -196,7 +196,7 @@ app.post('/changepassword', async function(req, res) {
     res.status(200).json({ message: 'Successful!' });
   } 
   catch (err) {
-    res.status(422).send(err);
+    res.status(422).json({ message: 'Failed to change password!' });
   }
 });
 
