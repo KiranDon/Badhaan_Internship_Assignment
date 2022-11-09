@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <title>Profile</title>
+    <link rel="stylesheet" href="/myProfile.css">
+</head>
+<body>
+
+  <div class="main">
+    <div class="right">
+      <h1 class="center" id="my">My Profile</h1>
+      
+      <div class="formBox">
+        <form method="post" action="edit">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="row gx-3">
+                  <div class="col-6  mb-3">
+                    <label class="form-label">Full name</label>
+                    <input class="form-control" type="text"  value="<%= user.fullName %>" name="fullName">
+                  </div> <!-- col .// -->
+                  <div class="col-6  mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input class="form-control" type="text"  value="<%= user.mobile %>" name="mobile">
+                  </div> <!-- col .// -->
+                  <div class="col-lg-6  mb-3">
+                    <label class="form-label">Location</label>
+                    <input class="form-control" type="text"  value="<%= user.location %>" name="location">
+                  </div> <!-- col .// -->
+                  <div class="col-lg-6  mb-3">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" type="email" placeholder="<%= user.username %>" disabled  name="username">
+                  </div> <!-- col .// -->
+                  
+                </div> <!-- row.// -->
+              </div> <!-- col.// -->
+              <aside class="col-lg-4">
+                <figure class="text-lg-center">
+                  <img class="img-lg mb-5 img-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQq6gaTf6N93kzolH98ominWZELW881HqCgw&usqp=CAU" alt="User Photo" id="userImage" style="width: 200px; height: 200px">
+                  <figcaption>
+                    <a class="btn btn-outline-primary" href="#" title="Disabled" style="cursor: not-allowed;">
+                      <i class="icons material-icons md-backup"></i> Upload
+                    </a>
+                  </figcaption>
+                </figure>
+              </aside> <!-- col.// -->
+            </div> <!-- row.// -->
+            <br>
+            <div class="row">
+              <!-- <button class="btn btn-primary" type="submit">Save changes</button> -->
+              <input type="submit" class="btn btn-primary" value="Save changes">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="logout" class="btn btn-danger">Logout</a>
+            </div>
+          </form>
+
+          <!-- <div class="row mt-4">
+          </div> -->
+          
+
+      </div>
+
+    </div>
+  </div>
+  
+</body>
+</html>

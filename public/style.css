@@ -1,0 +1,305 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.main .left, .main .right{
+    width: 50%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.title{
+    color: #5F5E5E;
+    font-size: 35px;
+    font-weight: 700;
+}
+.inputSection{
+    background-color: #F1EFF1;
+    margin: 20px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.inputFeild{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+.inputFeild::placeholder{
+    color: #B8B7B8;
+}
+.btn{
+    padding: 10px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    background-color: #5396FC;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #3985f7;
+}
+.socialText{
+    margin: 20px 0;
+}
+.socialIcons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: transparent;
+}
+.icon:hover{
+    color: #5396FC;
+    border-color: #5396FC;
+}
+.topSignUp{
+    position: absolute;
+    color: white;
+    width: 50%;
+}
+.topSignUpText{
+    padding-top: 50px;
+    text-align: center;
+}
+.topText{
+    margin: 20px 0;
+    padding: 0 150px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.topSignUp button{
+    background: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.shade{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+}
+.shade::before{
+    content: '';
+    width: 1550px;
+    height: 1550px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -60%);
+    background: linear-gradient(-45deg, #1892F2, #2C8BED);
+    border-radius: 50%;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+.shade.active::before{
+    transform: translate(50%, -50%);
+}
+.topSignUpImage{
+    width: 100%;
+}
+.topSignUpImage img{
+    width: 100%;
+    transform: scale(0.6);
+}
+/* ------------------------ */
+.topSignIn{
+    position: absolute;
+    color: white;
+    width: 50%;
+    right: 0;
+}
+.topSignInText{
+    padding-top: 50px;
+    text-align: center;
+}
+.topText{
+    margin: 20px 0;
+    padding: 0 150px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.topSignIn button{
+    background: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.topSignInImage{
+    width: 100%;
+}
+.topSignInImage img{
+    width: 100%;
+    transform: scale(0.6);
+}
+/* ------------------------ */
+.hidden{
+    display: none;
+}
+
+.signInSection, .signUpSection{
+    z-index: 100;
+}
+.errorMessage{
+    color: red;
+    font-weight: bold;
+}
+.error{
+    border: 2px solid red;
+}
+.box{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.box{
+    text-align: center;
+}
+.box p{
+    margin: 20px 0;
+}
+.flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.flex h1{
+    margin: 20px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+#password, #confirmPassword{
+    margin-left: 15px;
+}
+.eyeOpen{
+    position: absolute;
+    cursor: pointer;
+    right: 15px;
+}
+
+/* responsiveness */
+@media screen and (max-width: 1300px) {
+    .shade::before{
+        transform: translate(-50%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(40%, -50%);
+    }
+}
+@media screen and (max-width: 1200px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 100px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .shade::before{
+        transform: translate(-60%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(30%, -50%);
+    }
+}
+@media screen and (max-width: 1100px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 80px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+@media screen and (max-width: 950px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 60px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .shade::before{
+        transform: translate(-65%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(30%, -50%);
+    }
+}
+@media screen and (max-width: 850px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 50px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .shade::before{
+        transform: translate(-70%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(22%, -50%);
+    }
+}
+@media screen and (max-width: 750px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 50px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .shade::before{
+        transform: translate(-75%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(22%, -50%);
+    }
+}
+@media screen and (max-width: 650px) {
+    .topText{
+        margin: 20px 0;
+        padding: 0 50px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .shade::before{
+        transform: translate(-75%, -50%);
+    }
+    .shade.active::before{
+        transform: translate(18%, -50%);
+    }
+}

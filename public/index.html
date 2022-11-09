@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024">
+    <title>Login | Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <script  defer src="script.js"></script>
+</head>
+<body>
+    <div class="shade active"></div>
+    <div class="topSignUp hidden">
+        <div class="topSignUpText">
+            <h3 class="topTitle">New here?</h3>
+            <p class="topText">New to our website? What are you thinking? Sign up and Join us now.</p>
+            <button class="btn topButtonSignUp">Sign Up</button>
+        </div>
+        <div class="topSignUpImage hidden">
+            <img src="images/rocket.svg" alt="">
+        </div>
+    </div>
+    <!-- ----------------- -->
+    <div class="topSignIn">
+        <div class="topSignInText">
+            <h3 class="topTitle">One of us?</h3>
+            <p class="topText">Already had and account on our website? Why wasting time? Just login now!!!</p>
+            <button class="btn topButtonLogin">Log In</button>
+        </div>
+        <div class="topSignInImage">
+            <img src="images/desk.svg" alt="">
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="left">
+            <div class="signUpSection">
+                <h1 class="title">Sign Up</h1>
+                <p class="errorMessage hidden" id="errorMessage">Something is wrong.</p>
+                <form method="post" action="register" class="signUpForm" onsubmit="return validateRegister()">
+
+                    <div class="inputSection" id="divForEmail">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Email" class="inputFeild" name="username" id="email">
+                    </div>
+
+                    <div class="inputSection" id="divForFullName">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Full name" class="inputFeild" name="fullName" id="fullName">
+                    </div>
+
+                    <div class="inputSection" id="divForMobile">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="text" placeholder="Mobile Number" class="inputFeild" name="mobile" id="mobile">
+                    </div>
+
+                    <div class="inputSection" id="divForPlace">
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <input type="text" placeholder="Location" class="inputFeild" name="place" id="place">
+                    </div>
+
+                    <div class="inputSection" id="divForPassword">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" class="inputFeild" name="password" id="password">
+                        <i class="fa-sharp fa-solid fa-eye eyeOpen"></i>
+                    </div>
+
+                    <div class="inputSection" id="divForConfirmPassword">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" class="inputFeild" name="confirmPassword" id="confirmPassword">
+                        <i class="fa-sharp fa-solid fa-eye eyeOpen"></i>
+                    </div>
+
+                    <input type="submit" class="btn signUpButton" value="Sign Up" id="registerButton">
+                    <!-- <button class="btn loginButton">Sign Up</button> -->
+                </form>
+                <!-- <p class="socialText">Or Sign Up with social platforms.</p>
+                <div class="socialIcons">
+                    <button class="icon facebook" ><i class="fab fa-facebook-f"></i></button>
+                    <button class="icon google" ><i class="fab fa-google"></i></i></button>
+                    <button class="icon twitter" ><i class="fab fa-twitter"></i></button>
+                    <button class="icon github" ><i class="fab fa-github"></i></button>
+                </div> -->
+                
+            </div>
+            
+            
+        </div>
+        <div class="right">
+            <div class="signInSection hidden">
+                <h1 class="title">Sign In</h1>
+                <form class="signInForm" method="post" action="login" onsubmit="return validateLogin()">
+                    <div class="inputSection" id="divForEmailLogin">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Email" class="inputFeild" name="username" id="usernameLogin">
+                    </div>
+                    <div class="inputSection" id="divForPasswordLogin">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="password" class="inputFeild" name="password" id="passwordLogin">
+                        <i class="fa-sharp fa-solid fa-eye eyeOpen"></i>
+                    </div>
+                    <!-- <button class="btn loginButton">Login</button> -->
+                    <input type="submit" name="loginButton" id="loginButton" value="Login" class="btn loginButton">
+                </form>
+                <br>
+                <a href="/forgot">Forgot password?</a>
+                <p class="socialText">Or Sign In with social platforms.</p>
+                <div class="socialIcons">
+                    <button class="icon facebookSignin"><i class="fab fa-facebook-f"></i></button>
+                    <button class="icon googleSignin"><i class="fab fa-google"></i></i></button>
+                    <button class="icon twitterSignin"><i class="fab fa-twitter"></i></button>
+                    <button class="icon githubSignin"><i class="fab fa-github"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

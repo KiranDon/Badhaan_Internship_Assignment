@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.main{
+    width: 100%;
+    display: flex;
+}
+.main .left{
+    width: 15%;
+    padding-top: 20px;
+    background-color: #F8F9FA;
+    height: 100vh;
+    position: fixed;
+}
+.main .right{
+    padding-top: 20px;
+    width: 85%;
+    position: relative;
+}
+.center{
+    text-align: center;
+}
+ul{
+    margin-top: 50px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+.main .left ul{
+    list-style-type: none;
+}
+.main .left ul li{
+    padding: 10px;
+    /* border: 1px solid black; */
+    margin: 20px 0;
+    cursor: pointer;
+}
+.main .left ul li:hover{
+    background-color: white;
+}
+#my{
+    position: absolute;
+    left: 50%;
+}
+.main .right .formBox{
+    position: absolute;
+    left: 23%;
+    margin-top: 60px;
+    padding-top: 50px;
+    /* top: 10%; */
+    /* transform: translateX(-50%); */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+}
+#userImage{
+    border-radius: 50%;
+    transform: scale(1.2);
+}
