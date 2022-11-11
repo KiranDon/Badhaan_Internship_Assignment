@@ -77,38 +77,53 @@ app.get("/myProfile", function (req, res) {
   }
 });
 
+function findUser(email, callback){
+  User.findOne({username: email}, function(err, userObj){
+      if(err){
+          return callback(err);
+      } else if (userObj){
+          return callback(null,userObj);
+      } else {
+          return callback();
+      }
+  });
+}
+
 //login user
-app.post("/login", function (req, res) {
+app.post("/login", async function (req, res) {
 
   let mail = req.body.username;
 
-  let present = User.findOne({username: mail});
-  console.log(present)
+  findUser(mail, function(error, userFound) {
+    // console.log(userFound);
 
-  if(!present){
-    //not able to handle :-(
-  }else{
-    const user = new User({
+    if(userFound){
+      const user = new User({
         username: req.body.username,
         password: req.body.password
-    });
+      });
 
-    req.login(user, function(err){
-        if(err){
-            console.log("Login Failed....");
-            console.log(err);
-            return res.redirect("/");
-        }else{
-            passport.authenticate("local")(req, res, function(){
-                if(!req.user){
-                  res.send("Lollllllll")
-                }
-                console.log("Login Success...");
-                res.redirect("/profile");
-            });
-        }
-    })
-  }
+      req.login(user, function(err){
+          if(!user){
+              console.log("Login Failed....");
+              console.log(err);
+              return res.redirect("/");
+          }else{
+              passport.authenticate("local")(req, res, function(){
+                console.log(req.user)
+                  if(!req.user){
+                    res.send("Lollllllll")
+                  }
+                  console.log("Login Success...");
+                  res.redirect("/profile");
+              });
+          }
+      });
+
+    }else{
+      res.send("<h1>No User found.</h1>")
+    }
+  });
 });
 
 const userSchema = new mongoose.Schema({
@@ -133,8 +148,12 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
+app.get("/duplicate", (req, res)=>{
+  res.send("<h1>A user with given mail already exists.</h1>&nbsp;<a href='/'>Home</a>");
+})
+
 app.post("/register", function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     const user = new User({
       username: req.body.username,
       fullName: req.body.fullName,
@@ -142,16 +161,22 @@ app.post("/register", function(req, res) {
       location: req.body.place,
     });
 
-    User.register(user, req.body.password, function(err, user){
-      if(err){
-          console.log(err);
-          res.redirect("/errorWhileRegistering");
+    findUser(req.body.username, function(error, userFound){
+      if(userFound){
+        res.redirect("/duplicate");
       }else{
-          passport.authenticate("local")(req, res, function(){
-              res.redirect("/profile");
-          });
+        User.register(user, req.body.password, function(err, user){
+          if(err){
+              console.log(err);
+              res.redirect("/");
+          }else{
+              passport.authenticate("local")(req, res, function(){
+                  res.redirect("/profile");
+              });
+          }
+      });
       }
-  })
+    });
 }
 );
 
